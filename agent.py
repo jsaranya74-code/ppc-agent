@@ -46,7 +46,7 @@ def generate_posts(property_data: dict) -> dict:
 
 @app.route(, methods=[GET])
 def home()
-    return ✅ PPC Agent is LIVE!
+    return PPC Agent is LIVE!
 
 @app.route(run, methods=[POST])
 def run()
