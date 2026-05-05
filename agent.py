@@ -37,28 +37,26 @@ def generate_posts(property_data: dict) -> dict:
     }
 
 # ---- API ROUTES ----
+@app.route("/", methods=["GET"])
+def home():
+    return "PPC Agent is LIVE!"
 
-@app.route(, methods=[GET])
-def home()
-    return PPC Agent is LIVE!
-
-@app.route(run, methods=[POST])
-def run()
+@app.route("/run", methods=["POST"])
+def run():
     data = request.json
-    url = data.get(url)
+    url = data.get("url")
 
-    if not url
-        return jsonify({error URL is required}), 400
+    if not url:
+        return jsonify({"error": "URL is required"}), 400
 
-    try
-        property_data = scrape_property(url)
-        posts = generate_posts(property_data)
+    property_data = scrape_property(url)
+    posts = generate_posts(property_data)
 
-        return jsonify({
-            status success,
-            property property_data,
-            posts posts
-        })
+    return jsonify({
+        "status": "success",
+        "property": property_data,
+        "posts": posts
+    })
     except Exception as e
         return jsonify({error str(e)}), 500
 
