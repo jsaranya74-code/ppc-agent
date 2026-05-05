@@ -9,22 +9,16 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 # ---- STEP 1 SCRAPE PROPERTY ----
-def scrape_property(url str) - dict
-    headers = {User-Agent Mozilla5.0}
+def scrape_property(url: str) -> dict:
+    headers = {"User-Agent": "Mozilla/5.0"}
     r = requests.get(url, headers=headers, timeout=15)
-    soup = BeautifulSoup(r.text, html.parser)
+    soup = BeautifulSoup(r.text, "html.parser")
 
-    title = soup.find(h1).get_text(strip=True) if soup.find(h1) else Property
-    description = 
-
-    desc_el = soup.find(class_=lambda c c and description in c.lower())
-    if desc_el
-        description = desc_el.get_text( , strip=True)[500]
+    title = soup.find("h1").get_text(strip=True) if soup.find("h1") else "Property"
 
     return {
-        title title,
-        description description,
-        url url
+        "title": title,
+        "url": url
     }
 
 # ---- STEP 2 GENERATE SIMPLE POSTS (NO API KEY NEEDED) ----
