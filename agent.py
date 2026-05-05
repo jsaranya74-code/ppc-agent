@@ -28,18 +28,18 @@ def scrape_property(url str) - dict
     }
 
 # ---- STEP 2 GENERATE SIMPLE POSTS (NO API KEY NEEDED) ----
-def generate_posts(property_data dict) - dict
-    title = property_data[title]
-    url = property_data[url]
+def generate_posts(property_data: dict) -> dict:
+    title = property_data["title"]
+    url = property_data["url"]
 
     return {
-        facebook f🏡 New Property Alert!nn{title}nnExplore this amazing opportunity today.nn📞 Contact us for details.n🌐 {url},
-        instagram f✨ {title}nnDM for details 📩nn#PPCRealEstate #BangaloreHomes #PropertyForSale,
-        youtube {
-            title f{title}  PPC Real Estate,
-            description fExplore {title}. Contact us today.n{url}
+        "facebook": f"New Property Alert!\n\n{title}\n\nExplore this amazing opportunity today.\n\nContact us for details.\n{url}",
+        "instagram": f"{title}\n\nDM for details\n\n#PPCRealEstate #PropertyForSale",
+        "youtube": {
+            "title": f"{title} | PPC Real Estate",
+            "description": f"Explore {title}. Contact us today.\n{url}"
         },
-        gmb fNew property listed {title}. Contact PPC Real Estate for more info.n{url}
+        "gmb": f"New property listed: {title}. Contact us for more info.\n{url}"
     }
 
 # ---- API ROUTES ----
